@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JQUERRY Validation</title>
+    <script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
+    <style>
+        .container{
+          border: 1px solid black;
+          margin: 70px;
+          padding: 70px;
+          width: 30%;
+          margin-left: 30%;
+          box-shadow: 12px 13px blue;
+        }
+        .form-field{
+            margin-top: 10px;
+        
+        }
+        [type="submit"]{
+            border-radius: 9px;
+            color: white;
+            background-color: green;
+            margin-left: 10px;
+            margin-top: 12px;
+            width: 50px;
+        }
+    </style>
+</head>
+<body>
+    <form action="" method="#get" class="container">
+        <div class="form-field">
+            <label for="product-name">Product Name </label>
+            <input type="text" name="product-name" class="product-name"/>
+            <div class="warning-1"></div>
+        </div>
+
+        <div class="form-field">
+            <label for="product-code">Product Code </label>
+            <input type="text" name="product-code" class="product-code"/>
+            <div class="warning-2"></div>
+
+        </div>
+        <div class="form-field">
+            <label for="product-price">Product Price </label>
+            <input type="text" name="product-price" class="product-price"/>
+            <div class="warning-3"></div>
+
+        </div>
+        <button type="submit" class="btn" id="submit">ADD</button>
+    </form>
+    <script>
+        $(document).ready(function(){
+        $('.btn').click(function(){
+            var name = $('.product-name').val();
+            var code = $('.product-code').val();
+            var price = $('.product-price').val();
+            if( name ==''){
+                $('.warning-1').html('** input must not be empty');
+                $('.warning-1').css('color','red');
+                return false;
+            }
+            if( code ==''){
+                $('.warning-2').html('** Product code must be enter');
+                $('.warning-2').css('color','red');
+                return false;
+            }
+            
+            if( isNaN(code)){
+                $('.warning-2').html('** Product code must be number');
+                $('.warning-2').css('color','red');
+                return false;
+            }
+
+            if( price==""){
+                $('.warning-3').html('** Please Enter the price');
+                $('.warning-3').css('color','red');
+                return false;
+            }
+
+            if( isNaN(price)){
+                $('.warning-3').html('** Please Enter a valid price');
+                $('.warning-3').css('color','red');
+                return false;
+            }
+            
+        });
+
+        });
+    </script>
+</body>
+</html>

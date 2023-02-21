@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jquerry Events </title>
+   
+    <script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
+    <style>
+        .test{
+            border: 1px solid black;
+            padding: 30px;
+            text-align: center;
+            margin-right: 90px;
+            margin-left: 90px;
+
+        }
+    </style>
+</head>
+<body>
+    <div class="test">
+        <span >Hello Site check 123</span>
+    </div>
+    <script>
+        $(document).ready(function(){
+        
+            $('.test').click(function(){
+            $('.test').css("background-color","blue");
+            });
+
+//bdlclick lae double click ko kam garxa
+            $('.test').dblclick(function(){
+            $('.test').css("background-color","orange");
+            });
+ // yesma chai contextmenu lay right click ko kam garxa
+            $('.test').contextmenu(function(){
+
+                $('.test').css("background-color","red");
+            });
+//mouseenter
+//mouseleave
+$('.test').mouseenter(function(){
+$(".test").css("background-color","pink");
+});
+
+$('.test').mouseleave(function(){
+$(".test").css("background-color","black");
+});
+//keyword events
+$('body').keyup(function(){
+$("body").css("background-color","black");
+});
+$('body').keydown(function(){
+$("body").css("background-color","yellow");
+});
+$('body').keypress(function(){
+$("body").css("background-color","green");
+});
+        });
+    </script>
+</body>
+</html>
